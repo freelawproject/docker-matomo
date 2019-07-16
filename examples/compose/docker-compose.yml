@@ -41,7 +41,7 @@ services:
       - "MYSQL_ALLOW_EMPTY_PASSWORD=yes"
       - "MYSQL_DATABASE=matomo"
       - "MYSQL_USER=matomo"
-      - "MYSQL_PASSWORD=asupersecretpassword"
+      - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
     restart: always
 
   redis:
@@ -61,7 +61,7 @@ services:
       - "traefik.enable=true"
       - "traefik.backend=matomo"
       - "traefik.port=8000"
-      - "traefik.frontend.rule=Host:matomo.example.com"
+      - "traefik.frontend.rule=Host:matomo.courtlistener.com"
     env_file:
       - "./matomo.env"
     restart: always
